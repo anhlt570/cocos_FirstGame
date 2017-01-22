@@ -36,11 +36,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	if (!glview)
 	{
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-		glview = GLViewImpl::createWithRect("Hello Cocos", cocos2d::Rect(200, 200, 480, 480));
+		glview = GLViewImpl::createWithRect("Hello Cocos", cocos2d::Rect(200, 200, 800, 480));
 #else
 		glview = GLViewImpl::create("Hello Cocos");
 #endif
-		glview->setFrameSize(480, 480);
+		glview->setFrameSize(800, 480);
 		director->setOpenGLView(glview);
 	}
 	auto scene = HelloWorld::createScene();
