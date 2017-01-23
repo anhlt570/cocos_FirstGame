@@ -34,5 +34,17 @@ bool Splash::init()
 	auto logo = Sprite::create("HelloWorld.png");
 	logo->setPosition(visibleSize.width / 2, visibleSize.height / 2);
 	this->addChild(logo);
+
     return true;
+}
+
+void Splash::onEnter()
+{
+	Layer::onEnter();
+	this->scheduleOnce(schedule_selector(Splash::finishSplash), 2);
+}
+
+void Splash::finishSplash(float dt)
+{
+	Director::getInstance()->replaceScene(HelloWorld::createScene());
 }

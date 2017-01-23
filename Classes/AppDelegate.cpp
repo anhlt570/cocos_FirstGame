@@ -1,5 +1,5 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
+#include "SplashScene.h"
 
 USING_NS_CC;
 
@@ -43,7 +43,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 		glview->setFrameSize(800, 480);
 		director->setOpenGLView(glview);
 	}
-	auto scene = HelloWorld::createScene();
+	auto scene = Splash::createScene();
 	director->runWithScene(scene);
     return true;
 }
