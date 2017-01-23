@@ -38,8 +38,8 @@ bool HelloWorld::init()
 	auto moveBy = MoveBy::create(2, Vec2(200, 0));
 	auto rotateBy = RotateBy::create(2, 360);
 	auto scaleBy = ScaleBy::create(2, 2.5f);
-	auto fadeIn = FadeIn::create(2.0f);
-
+	auto fadeIn = FadeIn::create(2);
+	auto fadeOut = FadeOut::create(2);
 	
 
 	Vector<SpriteFrame*> animFrames;
@@ -54,9 +54,10 @@ bool HelloWorld::init()
 	animFrames.pushBack(SpriteFrame::create("hello_world_08.png", Rect(0, 0, helloWorld->getContentSize().width, helloWorld->getContentSize().height)));
 	Animation* myAnimation = Animation::createWithSpriteFrames(animFrames,0.1f);
 	auto frameAnimation = RepeatForever::create(Animate::create(myAnimation));
-	auto repeatedFade = RepeatForever::create(fadeIn);
+	auto fadedAnimation = RepeatForever::create(Sequence::create(fadeIn,fadeOut,nullptr));
 	helloWorld->runAction(frameAnimation);
 	helloWorld->runAction(Spawn::create(moveBy, rotateBy,  nullptr));
+	helloWorld->runAction(fadedAnimation);
 	
 	helloWorld->setPosition(Vec2(visibleSize.width/2,visibleSize.height/2));
 	this->addChild(helloWorld);
@@ -65,7 +66,7 @@ bool HelloWorld::init()
 	auto closeItem = MenuItemImage::create("CloseNormal.png", "CloseSelected.png", 
 		[&](Ref* sender)
 	{
-		printf("holy shit");
+		Director::getInstance()->end();
 	});
 	auto myMenu = Menu::createWithItem(closeItem);
 	this->addChild(myMenu);
