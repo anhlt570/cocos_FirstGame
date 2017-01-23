@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>frames</key>
+		<dict>
+			<key>hello_world_01.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,0},{491,198}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{4,58},{491,198}}</string>
+				<key>sourceSize</key>
+				<string>{512,256}</string>
+			</dict>
+
+			<key>hello_world_02.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,588},{408,184}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{49,69},{408,184}}</string>
+				<key>sourceSize</key>
+				<string>{512,256}</string>
+			</dict>
+
+			<key>hello_world_03.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,773},{403,184}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{53,72},{403,184}}</string>
+				<key>sourceSize</key>
+				<string>{512,256}</string>
+			</dict>
+
+			<key>hello_world_04.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{440,401},{381,162}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{74,60},{381,162}}</string>
+				<key>sourceSize</key>
+				<string>{512,256}</string>
+			</dict>
+
+			<key>hello_world_05.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{409,588},{390,174}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{66,62},{390,174}}</string>
+				<key>sourceSize</key>
+				<string>{512,256}</string>
+			</dict>
+
+			<key>hello_world_06.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{404,773},{400,178}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{55,78},{400,178}}</string>
+				<key>sourceSize</key>
+				<string>{512,256}</string>
+			</dict>
+
+			<key>hello_world_07.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,401},{439,186}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{16,65},{439,186}}</string>
+				<key>sourceSize</key>
+				<string>{512,256}</string>
+			</dict>
+
+			<key>hello_world_08.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,199},{477,201}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false/>
+				<key>sourceColorRect</key>
+				<string>{{3,51},{477,201}}</string>
+				<key>sourceSize</key>
+				<string>{512,256}</string>
+			</dict>
+
+		</dict>
+
+		<key>metadata</key>
+		<dict>
+			<key>format</key>
+			<integer>2</integer>
+			<key>size</key>
+			<string>{1024,1024}</string>
+			<key>textureFileName</key>
+			<string>my_hello_world.png</string>
+			</dict>
+		</dict>
+</plist>
