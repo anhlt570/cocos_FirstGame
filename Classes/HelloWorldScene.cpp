@@ -31,45 +31,65 @@ bool HelloWorld::init()
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	auto spriteCache = SpriteFrameCache::getInstance();
-	spriteCache->addSpriteFramesWithFile("my_hello_world.plist");
 
-	auto helloWorld = Sprite::createWithSpriteFrameName("hello_world_01.png");
+	auto myLabel = Label::createWithTTF("This is my fucking first game !!!", "fonts/Marker Felt.ttf", 24);
+	myLabel->setPosition(visibleSize.width / 2, visibleSize.height - myLabel->getContentSize().height / 2);
+	this->addChild(myLabel);
+
+	auto closeItem = MenuItemImage::create("CloseNormal.png", "CloseSelected.png",
+		[&](Ref* sender)
+	{
+		Director::getInstance()->end();
+	});
+
+	auto nextSceneButton = MenuItemLabel::create(Label::create("Next scene", "Arial", 24));
 	
+	Vector<MenuItem*> myMenuItems;
+	myMenuItems.pushBack(closeItem);
+	myMenuItems.pushBack(nextSceneButton);
+	auto myMenu = Menu::createWithArray(myMenuItems);
+	myMenu->alignItemsVertically();
+	this->addChild(myMenu);
+
+	
+
+	
+
+	spriteCache->addSpriteFramesWithFile("my_hello_world.plist");
+	auto lion = Sprite::createWithSpriteFrameName("hello_world_01.png");
 	auto moveBy = MoveBy::create(2, Vec2(200, 0));
 	auto rotateBy = RotateBy::create(2, 360);
 	auto scaleBy = ScaleBy::create(2, 2.5f);
 	auto fadeIn = FadeIn::create(2);
 	auto fadeOut = FadeOut::create(2);
-	
-
 	Vector<SpriteFrame*> animFrames;
 	animFrames.reserve(10);
-	animFrames.pushBack(SpriteFrame::create("hello_world_01.png", Rect(0, 0, helloWorld->getContentSize().width, helloWorld->getContentSize().height)));
-	animFrames.pushBack(SpriteFrame::create("hello_world_02.png", Rect(0, 0, helloWorld->getContentSize().width, helloWorld->getContentSize().height)));
-	animFrames.pushBack(SpriteFrame::create("hello_world_03.png", Rect(0, 0, helloWorld->getContentSize().width, helloWorld->getContentSize().height)));
-	animFrames.pushBack(SpriteFrame::create("hello_world_04.png", Rect(0, 0, helloWorld->getContentSize().width, helloWorld->getContentSize().height)));
-	animFrames.pushBack(SpriteFrame::create("hello_world_05.png", Rect(0, 0, helloWorld->getContentSize().width, helloWorld->getContentSize().height)));
-	animFrames.pushBack(SpriteFrame::create("hello_world_06.png", Rect(0, 0, helloWorld->getContentSize().width, helloWorld->getContentSize().height)));
-	animFrames.pushBack(SpriteFrame::create("hello_world_07.png", Rect(0, 0, helloWorld->getContentSize().width, helloWorld->getContentSize().height)));
-	animFrames.pushBack(SpriteFrame::create("hello_world_08.png", Rect(0, 0, helloWorld->getContentSize().width, helloWorld->getContentSize().height)));
+	animFrames.pushBack(SpriteFrame::create("hello_world_01.png", Rect(0, 0, lion->getContentSize().width, lion->getContentSize().height)));
+	animFrames.pushBack(SpriteFrame::create("hello_world_02.png", Rect(0, 0, lion->getContentSize().width, lion->getContentSize().height)));
+	animFrames.pushBack(SpriteFrame::create("hello_world_03.png", Rect(0, 0, lion->getContentSize().width, lion->getContentSize().height)));
+	animFrames.pushBack(SpriteFrame::create("hello_world_04.png", Rect(0, 0, lion->getContentSize().width, lion->getContentSize().height)));
+	animFrames.pushBack(SpriteFrame::create("hello_world_05.png", Rect(0, 0, lion->getContentSize().width, lion->getContentSize().height)));
+	animFrames.pushBack(SpriteFrame::create("hello_world_06.png", Rect(0, 0, lion->getContentSize().width, lion->getContentSize().height)));
+	animFrames.pushBack(SpriteFrame::create("hello_world_07.png", Rect(0, 0, lion->getContentSize().width, lion->getContentSize().height)));
+	animFrames.pushBack(SpriteFrame::create("hello_world_08.png", Rect(0, 0, lion->getContentSize().width, lion->getContentSize().height)));
 	Animation* myAnimation = Animation::createWithSpriteFrames(animFrames,0.1f);
 	auto frameAnimation = RepeatForever::create(Animate::create(myAnimation));
 	auto fadedAnimation = RepeatForever::create(Sequence::create(fadeIn,fadeOut,nullptr));
-	helloWorld->runAction(frameAnimation);
-	helloWorld->runAction(Spawn::create(moveBy, rotateBy,  nullptr));
-	helloWorld->runAction(fadedAnimation);
-	
-	helloWorld->setPosition(Vec2(visibleSize.width/2,visibleSize.height/2));
-	this->addChild(helloWorld);
+	lion->runAction(frameAnimation);
+	lion->runAction(Spawn::create(moveBy, rotateBy,  nullptr));
+	lion->runAction(fadedAnimation);
+	lion->setPosition(Vec2(visibleSize.width/2,visibleSize.height/2));
+	this->addChild(lion);
 
-	auto lamdaFunc = [](){ };
-	auto closeItem = MenuItemImage::create("CloseNormal.png", "CloseSelected.png", 
-		[&](Ref* sender)
-	{
-		Director::getInstance()->end();
-	});
-	auto myMenu = Menu::createWithItem(closeItem);
-	this->addChild(myMenu);
+	auto crab = Sprite::create("crab.png");
+	crab->setPosition(crab->getContentSize().width / 2, visibleSize.height - crab->getContentSize().height / 2);
+	this->addChild(crab);
+	auto crabMove = MoveBy::create(2,Vec2(0,-200));
+	auto crabMoveBack = crabMove->reverse();
+	auto crabMoveEaseIn = EaseIn::create(crabMove,0.5f);
+	auto crabSeqAction = Sequence::create(crabMoveEaseIn, crabMoveBack, nullptr);
+	crab->runAction(RepeatForever::create(crabSeqAction));
+
     return true;
 }
 

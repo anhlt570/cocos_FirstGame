@@ -41,7 +41,7 @@ bool Splash::init()
 void Splash::onEnter()
 {
 	Layer::onEnter();
-	this->scheduleOnce(schedule_selector(Splash::finishSplash), 2);
+	this->scheduleOnce(schedule_selector(Splash::finishSplash), 1);
 }
 
 void Splash::finishSplash(float dt)
