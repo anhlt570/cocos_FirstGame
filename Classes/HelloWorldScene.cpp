@@ -42,14 +42,18 @@ bool HelloWorld::init()
 		Director::getInstance()->end();
 	});
 
-	auto nextSceneButton = MenuItemLabel::create(Label::create("Next scene", "Arial", 24));
+	auto nextSceneButton = MenuItemLabel::create(Label::create("Next scene", "Arial", 24), 
+		[&](Ref *sender)
+	{
+		Director::getInstance()->pushScene(SmileFace::createScene());
+	});
 	
 	Vector<MenuItem*> myMenuItems;
 	myMenuItems.pushBack(closeItem);
 	myMenuItems.pushBack(nextSceneButton);
 	auto myMenu = Menu::createWithArray(myMenuItems);
 	myMenu->alignItemsVertically();
-	this->addChild(myMenu);
+	this->addChild(myMenu,1);
 
 	
 
